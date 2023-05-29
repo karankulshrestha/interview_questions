@@ -1,23 +1,33 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+#define all(x) x.begin(), x.end()
+
 int main() {
-    int n;
-    cin >> n;
-    while (n--)
-    {
+    int t;
+    cin >> t;
+    while(t--) {
         string s;
-        int k;
-        cin >> k;
+        int n;
+        cin >> n;
         cin >> s;
-        set<string> st;
-        for(int i = 0; i<k-1; i++) {
-            string temp = "";
-            temp += s[i];
-            temp += s[i + 1];
-            st.insert(temp);
+        vector<int> c(n);
+        int cnt = 0;
+        for(int i = 0; i<n; i++) {
+            if(s[i] == '(') cnt++;
+            else cnt--;
+            if(cnt == 0) c[i] = c[i - 1];
+            else c[i] = cnt > 0 ? 1 : 2;
         };
-        cout << st.size() << endl;
-    };
-    
-};
+        if(*min_element(all(c)) == 2) {
+            for(auto &x : c) x = 1;
+        }
+        if(cnt != 0) cout << -1 << endl;
+        else {
+            cout << *max_element(all(c)) << endl;
+            for(auto e : c) {
+                cout << e << " ";
+            };
+        }
+    }
+}
