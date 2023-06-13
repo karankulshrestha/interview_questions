@@ -48,6 +48,16 @@
         "string": "cpp",
         "deque": "cpp",
         "format": "cpp",
-        "list": "cpp"
+        "list": "cpp",
+        "array": "cpp",
+        "queue": "cpp",
+        "random": "cpp",
+        "ranges": "cpp",
+        "regex": "cpp",
+        "span": "cpp",
+        "stack": "cpp",
+        "valarray": "cpp",
+        "xhash": "cpp",
+        "xtree": "cpp"
     }
 }
